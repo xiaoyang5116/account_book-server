@@ -35,7 +35,7 @@ module.exports = appInfo => {
       // 密码
       password: '123456',
       // 数据库名
-      database: 'account_book', // 我们新建的数据库名称
+      database: 'account_book',
     },
     // 是否加载到 app 上，默认开启
     app: true,

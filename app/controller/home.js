@@ -5,7 +5,16 @@ const Controller = require('egg').Controller;
 class HomeController extends Controller {
   async index() {
     const { ctx } = this;
-    ctx.body = 'hi, egg';
+    try {
+      const result = ctx.service.home.user()
+      ctx.body = result
+    } catch (error) {
+      console.log(error);
+      ctx.body = {
+        msg: "查询user表失败"
+      }
+    }
+
   }
 }
 

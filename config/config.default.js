@@ -52,6 +52,11 @@ module.exports = appInfo => {
     agent: false,
   }
 
+  // 添加自定义加密字符串
+  config.jwt = {
+    secret: 'shawnYang_123456',
+  };
+
   return {
     ...config,
     ...userConfig,

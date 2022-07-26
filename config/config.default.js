@@ -23,6 +23,15 @@ module.exports = appInfo => {
     // myAppName: 'egg',
   };
 
+  // 本地使用 非本机 或者 例如：ApiFox、Postman，发送 post 请求 都会触发安防策略。
+  config.security = {
+    csrf: {
+      enable: false,
+      ignoreJSON: true
+    },
+    domainWhiteList: ['*'], // 配置白名单
+  }
+
   // 添加 mysql 连接配置
   config.mysql = {
     client: {

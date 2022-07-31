@@ -6,7 +6,7 @@ class HomeController extends Controller {
   async index() {
     const { ctx } = this;
     try {
-      const result = ctx.service.home.user()
+      const result = await ctx.service.home.user()
       ctx.body = result
     } catch (error) {
       console.log(error);

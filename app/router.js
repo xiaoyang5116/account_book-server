@@ -7,6 +7,7 @@ module.exports = app => {
   const { router, controller, middleware } = app;
   const _jwt = middleware.jwtErr(app.config.jwt.secret);  // 传入加密字符串
 
+  // 查询 用户表
   router.get('/', controller.home.index);
   // 获取用户信息
   router.get('/api/user/get_userinfo', _jwt, controller.user.getUserInfo);

@@ -21,6 +21,9 @@ module.exports = appInfo => {
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
+
+    // 设置图片存放路径
+    uploadDir: 'app/public/upload'
   };
 
   // 本地使用 非本机 或者 例如：ApiFox、Postman，发送 post 请求 都会触发安防策略。
@@ -56,6 +59,19 @@ module.exports = appInfo => {
   config.jwt = {
     secret: 'shawnYang_123456',
   };
+
+  // 设置文件接收方式
+  config.multipart = {
+    mode: 'file'
+  };
+
+  // 配置跨域
+  config.cors = {
+    origin: '*', // 允许所有跨域访问
+    credentials: true, // 允许 Cookie 跨域跨域
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
+  };
+
 
   return {
     ...config,

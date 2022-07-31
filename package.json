@@ -8,9 +8,12 @@
   },
   "dependencies": {
     "egg": "^2",
+    "egg-cors": "^2.2.3",
     "egg-jwt": "^3.1.7",
     "egg-mysql": "^3.1.1",
-    "egg-scripts": "^2"
+    "egg-scripts": "^2",
+    "mkdirp": "^1.0.4",
+    "moment": "^2.29.4"
   },
   "devDependencies": {
     "autod": "^3",

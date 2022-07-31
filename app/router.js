@@ -21,6 +21,9 @@ module.exports = app => {
   // 修改用户个性签名
   router.post('/api/user/edit_userinfo', _jwt, controller.user.editUserInfo);
   // 上传图片
-  router.post('/api/upload',controller.upload.upload)
+  router.post('/api/upload', controller.upload.upload)
+
+  // bill 账单
+  router.post('/api/bill/add', _jwt, controller.bill.add)
 
 };

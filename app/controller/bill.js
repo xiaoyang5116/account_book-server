@@ -5,6 +5,7 @@ const moment = require('moment');
 
 
 class BillController extends Controller {
+  // 添加账单记录
   async add() {
     const { ctx, app } = this
 
@@ -48,6 +49,29 @@ class BillController extends Controller {
         msg: '系统错误',
         data: null
       }
+    }
+  }
+
+  // 账单集合
+  async list() {
+    const { ctx, app } = this
+    const { date, page = 1, page_size = 5, type_id = all } = ctx.query
+
+    try {
+      const token = ctx.request.header.authorization
+      const decode = await app.jwt.verify(token, app.config.jwt.secret)
+      if (!decode) return
+      // 拿到当前用户的账单列表
+      const list = await ctx.service.bill.list(decode.id)
+      // 过滤出月份和类型所对应的账单列表
+      const _list = list.filter(item => {
+        if (type_id != 'all') {
+          return moment(Number(item.date)).format('YYYY-MM') == date && type_id == item.type_id
+        }
+        return moment(Number(item.date)).format('YYYY-MM') == date
+      })
+    } catch (error) {
+
     }
   }
 }

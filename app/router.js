@@ -26,5 +26,6 @@ module.exports = app => {
   // bill 账单
   router.post('/api/bill/add', _jwt, controller.bill.add)
   router.get('/api/bill/list', _jwt, controller.bill.list)
+  router.get('/api/bill/detail', _jwt, controller.bill.detail); // 获取详情
 
 };
